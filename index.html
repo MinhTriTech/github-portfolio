@@ -1,76 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Developer Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Cá Nhân - [Tên Bạn]</title>
+    <!-- Link Bootstrap CSS từ CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Tùy chỉnh màu bạc */
+        :root {
+            --silver: #C0C0C0;
+            --dark-silver: #A9A9A9;
+            --light-silver: #D3D3D3;
+        }
+        body {
+            background-color: var(--light-silver);
+            color: #333;
+        }
+        .navbar, footer {
+            background-color: var(--dark-silver) !important;
+        }
+        .btn-custom {
+            background-color: var(--silver);
+            border-color: var(--dark-silver);
+            color: #333;
+        }
+        .btn-custom:hover {
+            background-color: var(--dark-silver);
+            color: #fff;
+        }
+        .card {
+            border: 1px solid var(--silver);
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">AI Dev</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#">[Tên Bạn]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Kỹ năng</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Kinh nghiệm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Dự án</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <header class="text-center bg-primary text-white py-5">
+
+    <!-- Header Section -->
+    <header id="home" class="text-center py-5" style="background-color: var(--silver);">
         <div class="container">
-            <h1>AI-Powered Developer</h1>
-            <p>Leveraging AI to enhance development and innovation</p>
+            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Ảnh đại diện">
+            <h1>Xin chào, tôi là [Tên Bạn]</h1>
+            <p class="lead">[Nghề nghiệp, ví dụ: Nhà phát triển Full-Stack]</p>
+            <div class="social-links mt-3">
+                <a href="[Link LinkedIn]" target="_blank" class="btn btn-custom mx-2">LinkedIn</a>
+                <a href="[Link Facebook]" target="_blank" class="btn btn-custom mx-2">Facebook</a>
+                <a href="[Link GitHub]" target="_blank" class="btn btn-custom mx-2">GitHub</a>
+            </div>
         </div>
     </header>
-    
-    <section id="about" class="container my-5 text-center">
-        <h2>About Me</h2>
-        <p>Passionate AI-driven developer specializing in automation, machine learning, and web development.</p>
-    </section>
-    
-    <section id="projects" class="container my-5">
-        <h2 class="text-center">Projects</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="ai_project1.jpg" class="card-img-top" alt="Project 1">
-                    <div class="card-body">
-                        <h5 class="card-title">AI Chatbot</h5>
-                        <p class="card-text">Developed a smart chatbot using NLP and GPT models.</p>
-                    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Giới thiệu</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/300x300" class="img-fluid rounded mb-3" alt="Ảnh cá nhân">
+                </div>
+                <div class="col-md-8">
+                    <p>Mình là [Tên Bạn], một người đam mê công nghệ với [số năm] năm kinh nghiệm trong [lĩnh vực]. Mình yêu thích việc giải quyết vấn đề và tạo ra những sản phẩm có giá trị thực tế. Hãy cùng khám phá hành trình của mình qua các dự án và kỹ năng dưới đây!</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="ai_project2.jpg" class="card-img-top" alt="Project 2">
-                    <div class="card-body">
-                        <h5 class="card-title">AI Code Assistant</h5>
-                        <p class="card-text">An AI-powered coding assistant for developers.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5" style="background-color: var(--silver);">
+        <div class="container">
+            <h2 class="text-center mb-4">Kỹ năng</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>Lập trình</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">HTML, CSS, JS</div>
+                    </div>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">Python</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <h5>Thiết kế</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">Figma</div>
+                    </div>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">Photoshop</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="contact" class="container my-5 text-center">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out for collaborations or project discussions.</p>
-        <a href="mailto:developer@example.com" class="btn btn-primary">Email Me</a>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Kinh nghiệm</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">[Công ty 1] - [Chức vụ]</h5>
+                            <p class="card-text"><small>Tháng [X] 20XX - Hiện tại</small></p>
+                            <p>Mô tả công việc và thành tựu của bạn tại đây.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">[Công ty 2] - [Chức vụ]</h5>
+                            <p class="card-text"><small>Tháng [X] 20XX - Tháng [Y] 20XX</small></p>
+                            <p>Mô tả công việc và thành tựu của bạn tại đây.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <footer class="text-center bg-dark text-white py-3">
-        <p>&copy; 2024 AI Dev. All rights reserved.</p>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5" style="background-color: var(--silver);">
+        <div class="container">
+            <h2 class="text-center mb-4">Dự án</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 1</h5>
+                            <p class="card-text">Mô tả chi tiết dự án 1.</p>
+                            <a href="#" class="btn btn-custom">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 2</h5>
+                            <p class="card-text">Mô tả chi tiết dự án 2.</p>
+                            <a href="#" class="btn btn-custom">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 3</h5>
+                            <p class="card-text">Mô tả chi tiết dự án 3.</p>
+                            <a href="#" class="btn btn-custom">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Liên hệ</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Tin nhắn</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Nhập tin nhắn"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-3">
+        <div class="container">
+            <p>© 2025 [Tên Bạn]. Kết nối với tôi:</p>
+            <a href="[Link LinkedIn]" target="_blank" class="text-white mx-2">LinkedIn</a> |
+            <a href="[Link Facebook]" target="_blank" class="text-white mx-2">Facebook</a> |
+            <a href="[Link GitHub]" target="_blank" class="text-white mx-2">GitHub</a>
+        </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+
+    <!-- Link Bootstrap JS từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
