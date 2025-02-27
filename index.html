@@ -1,35 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Developer</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Cá Nhân</title>
+    <!-- Link Bootstrap CSS từ CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My AI-Powered Portfolio</h1>
-        <p>Exploring the intersection of AI and Software Development</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">[Tên Bạn]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Dự án</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1>Xin chào, tôi là [Tên Bạn]</h1>
+            <p class="lead">Một [nghề nghiệp của bạn, ví dụ: Nhà phát triển web] đam mê sáng tạo.</p>
+        </div>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a developer who leverages AI to enhance productivity, automate tasks, and create innovative solutions.</p>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Giới thiệu</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/400x300" class="img-fluid rounded" alt="Ảnh cá nhân">
+                </div>
+                <div class="col-md-6">
+                    <p>Mình là [Tên Bạn], một người yêu thích công nghệ và thiết kế. Mình có kinh nghiệm trong [liệt kê kỹ năng hoặc lĩnh vực của bạn, ví dụ: phát triển web, thiết kế UI/UX]. Mục tiêu của mình là tạo ra những sản phẩm đẹp mắt và hữu ích.</p>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>AI Code Assistant</li>
-            <li>Automated Bug Fixing</li>
-            <li>AI Chatbot for Developers</li>
-        </ul>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Dự án</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 1</h5>
+                            <p class="card-text">Mô tả ngắn về dự án 1 của bạn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 2</h5>
+                            <p class="card-text">Mô tả ngắn về dự án 2 của bạn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Dự án 3</h5>
+                            <p class="card-text">Mô tả ngắn về dự án 3 của bạn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: dev@aiportfolio.com</p>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Liên hệ</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Họ tên</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nhập họ tên">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Tin nhắn</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Nhập tin nhắn"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
-    <footer>
-        <p>&copy; 2025 AI-Powered Developer. All rights reserved.</p>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 [Tên Bạn]. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+
+    <!-- Link Bootstrap JS từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
