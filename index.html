@@ -18,7 +18,6 @@
             font-family: 'Segoe UI', Tahoma, sans-serif;
             color: #333;
         }
-        /* Navbar sáng tạo */
         .navbar-custom {
             background: linear-gradient(90deg, var(--dark-silver), var(--silver));
             padding: 1rem 0;
@@ -56,9 +55,21 @@
         header {
             background: linear-gradient(135deg, var(--silver), var(--dark-silver));
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-            min-height: 100vh;
+            min-height: 80vh; /* Giới hạn chiều cao */
             display: flex;
             align-items: center;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid #fff;
+        }
+        .about-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
         }
         .card {
             border: none;
@@ -83,6 +94,9 @@
             background-color: var(--dark-silver);
             color: #fff;
         }
+        .skill-group {
+            position: relative;
+        }
         .skill-icon {
             width: 80px;
             height: 80px;
@@ -90,6 +104,11 @@
         }
         .skill-icon:hover {
             transform: scale(1.2);
+        }
+        .skill-connector {
+            position: absolute;
+            border: 1px dashed var(--dark-silver);
+            z-index: -1;
         }
         .timeline {
             position: relative;
@@ -132,7 +151,7 @@
             right: -10px;
         }
         .timeline-item:nth-child(even)::before {
-            left: -10px;
+            left: - Peach;
         }
     </style>
 </head>
@@ -159,7 +178,7 @@
     <!-- Header Section -->
     <header id="home" class="text-center py-5">
         <div class="container">
-            <img src="https://via.placeholder.com/200" class="rounded-circle mb-4 shadow" alt="Ảnh đại diện" style="border: 5px solid #fff;">
+            <img src="https://via.placeholder.com/200" class="rounded-circle mb-4 shadow profile-img" alt="Ảnh đại diện">
             <h1 class="display-4 fw-bold">[Tên Bạn]</h1>
             <p class="lead">[Nghề nghiệp, ví dụ: Nhà phát triển Full-Stack]</p>
             <p class="mb-4">Mình là một người đam mê sáng tạo, luôn tìm cách biến ý tưởng thành hiện thực qua code và thiết kế. Hãy khám phá portfolio của mình để biết thêm nhé!</p>
@@ -173,7 +192,7 @@
             <h2 class="text-center mb-5 fw-bold">Giới thiệu</h2>
             <div class="row align-items-center">
                 <div class="col-md-5">
-                    <img src="https://via.placeholder.com/400x400" class="img-fluid rounded shadow" alt="Ảnh cá nhân">
+                    <img src="https://via.placeholder.com/400" class="about-img shadow" alt="Ảnh cá nhân">
                 </div>
                 <div class="col-md-7">
                     <p class="lead">Mình là [Tên Bạn], một người đam mê công nghệ với [số năm] năm kinh nghiệm trong [lĩnh vực]. Mình thích làm việc với các dự án thử thách và luôn hướng tới việc tạo ra giá trị thực sự.</p>
@@ -187,21 +206,47 @@
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">Kỹ năng</h2>
             <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4">
-                    <img src="https://via.placeholder.com/80?text=HTML" class="skill-icon" alt="HTML">
-                    <p>HTML</p>
+                <!-- Ngôn ngữ giao tiếp -->
+                <div class="col-md-4 skill-group">
+                    <h5>Ngôn ngữ giao tiếp</h5>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=Tiếng+Anh" class="skill-icon" alt="Tiếng Anh">
+                            <p>Tiếng Anh</p>
+                        </div>
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt">
+                            <p>Tiếng Việt</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <img src="https://via.placeholder.com/80?text=CSS" class="skill-icon" alt="CSS">
-                    <p>CSS</p>
+                <!-- Ngôn ngữ lập trình -->
+                <div class="col-md-4 skill-group">
+                    <h5>Ngôn ngữ lập trình</h5>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=HTML" class="skill-icon" alt="HTML">
+                            <p>HTML</p>
+                        </div>
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=Python" class="skill-icon" alt="Python">
+                            <p>Python</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <img src="https://via.placeholder.com/80?text=JS" class="skill-icon" alt="JavaScript">
-                    <p>JavaScript</p>
-                </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <img src="https://via.placeholder.com/80?text=Python" class="skill-icon" alt="Python">
-                    <p>Python</p>
+                <!-- Kỹ năng mềm -->
+                <div class="col-md-4 skill-group">
+                    <h5>Kỹ năng mềm</h5>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=Teamwork" class="skill-icon" alt="Teamwork">
+                            <p>Teamwork</p>
+                        </div>
+                        <div class="m-2">
+                            <img src="https://via.placeholder.com/80?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
+                            <p>Problem Solving</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -239,9 +284,9 @@
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">Dự án</h2>
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 mb-4">
                     <div class="card shadow-sm">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 1">
+                        <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="Dự án 1">
                         <div class="card-body">
                             <h5 class="card-title">Dự án 1</h5>
                             <p class="card-text">Mô tả ngắn gọn nhưng cuốn hút.</p>
@@ -249,21 +294,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-md-6 mb-4">
                     <div class="card shadow-sm">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 2">
+                        <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="Dự án 2">
                         <div class="card-body">
                             <h5 class="card-title">Dự án 2</h5>
-                            <p class="card-text">Mô tả ngắn gọn nhưng cuốn hút.</p>
-                            <a href="#" class="btn btn-custom">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Dự án 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dự án 3</h5>
                             <p class="card-text">Mô tả ngắn gọn nhưng cuốn hút.</p>
                             <a href="#" class="btn btn-custom">Xem chi tiết</a>
                         </div>
