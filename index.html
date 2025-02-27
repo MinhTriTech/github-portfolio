@@ -100,29 +100,36 @@
             white-space: nowrap;
             position: relative;
             background-color: var(--silver);
-            padding: 2rem 0;
+            height: 120px; /* Chiều cao cố định */
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
         .slider-track {
             display: inline-block;
-            animation: slide 20s linear infinite;
+            animation: slide 25s linear infinite;
+            width: 200%; /* Đảm bảo đủ nội dung để lặp liền mạch */
         }
         .skill-item {
             display: inline-flex;
             align-items: center;
-            margin-right: 2rem;
+            margin-right: 2.5rem;
+            position: relative;
+            top: 0; /* Sẽ được điều chỉnh random trong HTML */
         }
         .skill-icon {
-            width: 60px;
+            width: 60px; /* Kích thước mặc định, có thể thay đổi */
             height: 60px;
             margin-right: 1rem;
             transition: transform 0.3s ease;
+            object-fit: contain; /* Giữ tỷ lệ ảnh */
         }
         .skill-item:hover .skill-icon {
             transform: scale(1.2);
         }
         @keyframes slide {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-50%); } /* Dịch chuyển nửa chiều dài */
         }
         .timeline {
             position: relative;
@@ -221,53 +228,53 @@
             <h2 class="text-center mb-5 fw-bold">Kỹ năng</h2>
             <div class="skills-slider">
                 <div class="slider-track">
-                    <!-- Lặp lại danh sách để tạo hiệu ứng vô tận -->
-                    <div class="skill-item">
+                    <!-- Danh sách kỹ năng với vị trí ngẫu nhiên -->
+                    <div class="skill-item" style="top: 10px;">
                         <img src="https://via.placeholder.com/60?text=Tiếng+Anh" class="skill-icon" alt="Tiếng Anh">
                         <span>Tiếng Anh</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt">
+                    <div class="skill-item" style="top: 40px;">
+                        <img src="https://via.placeholder.com/80?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt" style="width: 80px; height: 80px;">
                         <span>Tiếng Việt</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Python" class="skill-icon" alt="Python">
+                    <div class="skill-item" style="top: 20px;">
+                        <img src="https://via.placeholder.com/70?text=Python" class="skill-icon" alt="Python" style="width: 70px; height: 70px;">
                         <span>Python</span>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" style="top: 30px;">
                         <img src="https://via.placeholder.com/60?text=Java" class="skill-icon" alt="Java">
                         <span>Java</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Teamwork" class="skill-icon" alt="Teamwork">
+                    <div class="skill-item" style="top: 15px;">
+                        <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 90px;">
                         <span>Teamwork</span>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" style="top: 25px;">
                         <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
                         <span>Problem Solving</span>
                     </div>
-                    <!-- Lặp lại để đảm bảo liền mạch -->
-                    <div class="skill-item">
+                    <!-- Lặp lại để liền mạch -->
+                    <div class="skill-item" style="top: 10px;">
                         <img src="https://via.placeholder.com/60?text=Tiếng+Anh" class="skill-icon" alt="Tiếng Anh">
                         <span>Tiếng Anh</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt">
+                    <div class="skill-item" style="top: 40px;">
+                        <img src="https://via.placeholder.com/80?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt" style="width: 80px; height: 80px;">
                         <span>Tiếng Việt</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Python" class="skill-icon" alt="Python">
+                    <div class="skill-item" style="top: 20px;">
+                        <img src="https://via.placeholder.com/70?text=Python" class="skill-icon" alt="Python" style="width: 70px; height: 70px;">
                         <span>Python</span>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" style="top: 30px;">
                         <img src="https://via.placeholder.com/60?text=Java" class="skill-icon" alt="Java">
                         <span>Java</span>
                     </div>
-                    <div class="skill-item">
-                        <img src="https://via.placeholder.com/60?text=Teamwork" class="skill-icon" alt="Teamwork">
+                    <div class="skill-item" style="top: 15px;">
+                        <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 90px;">
                         <span>Teamwork</span>
                     </div>
-                    <div class="skill-item">
+                    <div class="skill-item" style="top: 25px;">
                         <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
                         <span>Problem Solving</span>
                     </div>
