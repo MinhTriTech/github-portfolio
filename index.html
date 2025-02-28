@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Cá Nhân - [Tên Bạn]</title>
+    <title>Personal Portfolio - [Your Name]</title>
     <!-- Link Bootstrap CSS từ CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --silver: #C0C0C0;
-            --dark-silver: #8A8A8A;
-            --light-silver: #E8ECEF;
+            --primary: #2D3748;
+            --secondary: #A0AEC0;
+            --background: #EDF2F7;
             --shadow: rgba(0, 0, 0, 0.2);
         }
         body {
-            background-color: var(--light-silver);
+            background-color: var(--background);
             font-family: 'Segoe UI', Tahoma, sans-serif;
             color: #333;
-            margin: 0; /* Loại bỏ margin mặc định của body */
+            margin: 0;
+            overflow-x: hidden;
         }
         .navbar-custom {
-            background: linear-gradient(90deg, var(--dark-silver), var(--silver));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             padding: 1rem 0;
             border-bottom: 3px solid #fff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         .navbar-brand {
             font-size: 1.5rem;
@@ -53,90 +58,142 @@
             width: 100%;
             left: 0;
         }
-        header {
-            background: linear-gradient(135deg, var(--silver), var(--dark-silver));
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             min-height: 80vh;
+            padding-top: 100px; /* Đảm bảo không bị navbar đè */
             display: flex;
             align-items: center;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
         .profile-img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             border: 5px solid #fff;
+            border-radius: 50%;
         }
-        .about-img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
+        .hero-text {
+            color: #fff;
+            max-width: 600px;
         }
-        .card {
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px var(--shadow);
+        .hero-text .lead {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .hero-text p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
         .btn-custom {
-            background-color: var(--dark-silver);
-            color: #fff;
-            border-radius: 25px;
+            background-color: #fff;
+            color: var(--primary);
+            border-radius: 8px;
             padding: 0.5rem 1.5rem;
             transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
         }
         .btn-custom:hover {
-            background-color: #666;
-            transform: scale(1.1);
+            background-color: #4A5568;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        .btn-custom::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-custom:hover::after {
+            opacity: 1;
+        }
+        .lang-toggle-btn {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            background-color: var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lang-toggle-btn img {
+            width: 20px;
+            height: 20px;
+            /* filter: brightness(0) invert(1); */
+        }
+        .lang-toggle-btn:hover {
+            background-color: #4A5568;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
         }
         footer {
-            background-color: var(--dark-silver);
+            background-color: var(--primary);
             color: #fff;
         }
-        /* Hoạt ảnh kỹ năng */
         .skills-section {
-            padding-top: 5rem; /* Khoảng cách phía trên */
-            padding-bottom: 1rem; /* Khoảng cách phía dưới nhỏ hơn để sát với slider */
+            padding: 5rem 0;
         }
         .skills-slider {
             overflow: hidden;
             white-space: nowrap;
             position: relative;
-            background-color: var(--silver);
-            height: 120px; /* Chiều cao cố định */
-            width: 100vw; /* Full viewport width */
+            background-color: var(--secondary);
+            height: 120px;
+            width: 100%;
             margin: 0;
             padding: 0;
-            left: 0; /* Đặt sát mép trái */
-            transform: none; /* Loại bỏ transform để không bị lệch */
+        }
+        .slider-content-base {
+            display: inline-flex;
         }
         .slider-track {
             display: inline-block;
-            animation: slide 25s linear infinite;
-            width: 200%; /* Đảm bảo đủ nội dung để lặp liền mạch */
+            animation: slide 15s linear infinite;
         }
         .skill-item {
             display: inline-flex;
             align-items: center;
             margin-right: 2.5rem;
             position: relative;
-            top: 0; /* Sẽ được điều chỉnh random trong HTML */
+            top: 0;
         }
         .skill-icon {
-            width: 60px; /* Kích thước mặc định, có thể thay đổi */
+            width: 60px;
             height: 60px;
             margin-right: 1rem;
             transition: transform 0.3s ease;
-            object-fit: contain; /* Giữ tỷ lệ ảnh */
+            object-fit: contain;
         }
         .skill-item:hover .skill-icon {
             transform: scale(1.2);
         }
         @keyframes slide {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Dịch chuyển nửa chiều dài */
+            100% { transform: translateX(calc(-100% / 3)); }
         }
         .timeline {
             position: relative;
@@ -147,7 +204,7 @@
             content: '';
             position: absolute;
             width: 2px;
-            background-color: var(--dark-silver);
+            background-color: var(--primary);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -170,7 +227,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: var(--silver);
+            background-color: var(--secondary);
             border-radius: 50%;
             top: 30px;
             z-index: 1;
@@ -181,50 +238,156 @@
         .timeline-item:nth-child(even)::before {
             left: -10px;
         }
+        .project-card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .project-desc {
+            font-size: 0.95rem;
+            color: #666;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+        .project-langs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-start;
+        }
+        .project-lang-icon {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .project-lang-icon {
+            transform: scale(1.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar-custom {
+                padding: 0.75rem 0;
+            }
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+            .nav-link {
+                padding: 0.5rem 1rem;
+            }
+            .hero-section {
+                min-height: 60vh;
+                padding-top: 80px;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text .lead {
+                font-size: 1rem;
+            }
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+            .skills-slider {
+                height: 100px;
+            }
+            .skill-icon {
+                width: 50px;
+                height: 50px;
+            }
+            .skill-item {
+                margin-right: 1.5rem;
+            }
+            .project-card {
+                min-height: 200px;
+                padding: 1rem;
+            }
+            .project-title {
+                font-size: 1.1rem;
+            }
+            .project-desc {
+                font-size: 0.85rem;
+            }
+            .project-lang-icon {
+                width: 25px;
+                height: 25px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding: 15px;
+                left: 0 !important;
+                text-align: left;
+            }
+            .timeline::before {
+                left: 10px;
+            }
+            .timeline-item::before {
+                left: 0 !important;
+                right: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">[Tên Bạn]</a>
+            <a class="navbar-brand" href="#">Tri Ngo Hoang Minh</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Kỹ năng</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Kinh nghiệm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Dự án</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home" data-lang-vi="Trang chủ" data-lang-en="Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-lang-vi="Kỹ năng" data-lang-en="Skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience" data-lang-vi="Kinh nghiệm" data-lang-en="Experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio" data-lang-vi="Dự án" data-lang-en="Portfolio">Portfolio</a></li>
+                    <li class="nav-item">
+                        <button id="langToggle" class="lang-toggle-btn ms-2" data-lang="en">
+                            <img src="./img/flags/united-kingdom.png" id="langIcon" alt="Language">
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header id="home" class="text-center py-5">
-        <div class="container">
-            <img src="https://via.placeholder.com/200" class="rounded-circle mb-4 shadow profile-img" alt="Ảnh đại diện">
-            <h1 class="display-4 fw-bold">[Tên Bạn]</h1>
-            <p class="lead">[Nghề nghiệp, ví dụ: Nhà phát triển Full-Stack]</p>
-            <p class="mb-4">Mình là một người đam mê sáng tạo, luôn tìm cách biến ý tưởng thành hiện thực qua code và thiết kế. Hãy khám phá portfolio của mình để biết thêm nhé!</p>
-            <a href="[Link đến file PDF CV]" download class="btn btn-custom">Tải CV của tôi</a>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Giới thiệu</h2>
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <img src="https://via.placeholder.com/400" class="about-img shadow" alt="Ảnh cá nhân">
-                </div>
-                <div class="col-md-7">
-                    <p class="lead">Mình là [Tên Bạn], một người đam mê công nghệ với [số năm] năm kinh nghiệm trong [lĩnh vực]. Mình thích làm việc với các dự án thử thách và luôn hướng tới việc tạo ra giá trị thực sự.</p>
-                </div>
+    <!-- Hero Section (Home + About) -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <img src="./img/avatar/avatar.png" class="profile-img shadow" alt="Profile Picture">
+            <div class="hero-text">
+                <h1>Tri Ngo Hoang Minh</h1>
+                <p class="lead" data-lang-vi="Sinh viên" data-lang-en="Student">Student</p>
+                <p data-lang-vi="Tui là Trí, thích tìm tòi mấy món công nghệ, từ phần mềm tới phần cứng. Nhưng mà chỉ thích không thì khó mà đi xa trong ngành Công nghệ Thông tin. Tui thích thử sức với mấy cái mới, dù phải mất thời gian để quen, nhưng mỗi thử thách đều đáng giá trên con đường chinh phục mục tiêu. À mà, ảnh bên trái là ảnh ghép đó, thời đại AI mà. Tui đi thì cũng nhiều, nhưng không có duyên với chuyện chụp ảnh hay sao ấy. ...@@..." 
+                data-lang-en="I'm Tri, someone who enjoys exploring technology, from software to hardware. But just enjoying it isn't enough to go far in the Information Technology industry. I like taking on new challenges, even though adapting takes time, but each challenge adds value to the journey of achieving my goals. Oh, by the way, the photo on the left is edited—AI era, after all. I travel quite a bit, but somehow, I never seem to have much luck with taking photos. ...@@...">
+                I'm Trí, someone who enjoys exploring technology, from software to hardware. But just enjoying it isn't enough to go far in the Information Technology industry. I like taking on new challenges, even though adapting takes time, but each challenge adds value to the journey of achieving my goals. Oh, by the way, the photo on the left is edited—AI era, after all. I travel quite a bit, but somehow, I never seem to have much luck with taking photos. ...@@...</p>
+                <a href="[Link to PDF CV]" download class="btn btn-custom" data-lang-vi="Tải CV của tôi" data-lang-en="Download My CV">Download My CV</a>
             </div>
         </div>
     </section>
@@ -232,60 +395,79 @@
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Kỹ năng</h2>
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Kỹ năng" data-lang-en="Skills">Skills</h2>
         </div>
-        <!-- Tách slider ra khỏi container để ôm sát viền -->
         <div class="skills-slider">
             <div class="slider-track">
-                <!-- Danh sách kỹ năng với vị trí ngẫu nhiên -->
-                <div class="skill-item" style="top: 10px;">
-                    <img src="https://via.placeholder.com/60?text=Tiếng+Anh" class="skill-icon" alt="Tiếng Anh">
-                    <span>Tiếng Anh</span>
+                <div class="slider-content-base">
+                    <div class="skill-item" style="top: 40px;">
+                        <img src="./img/flags/vietnam.png" class="skill-icon" alt="Vietnamese" style="width: 80px; height: 80px;">
+                        <span data-lang-vi="Tiếng Việt" data-lang-en="Vietnamese">Vietnamese</span>
+                    </div>
+                    <div class="skill-item" style="top: 10px;">
+                        <img src="./img/flags/united-kingdom.png" class="skill-icon" alt="English">
+                        <span data-lang-vi="Tiếng Anh" data-lang-en="English">English</span>
+                    </div>
+                    <div class="skill-item" style="top: 20px;">
+                        <img src="./img/skills/java.png" class="skill-icon" alt="Java" style="width: 70px; height: 70px;">
+                    </div>
+                    <div class="skill-item" style="top: 30px;">
+                        <img src="./img/skills/js.png" class="skill-icon" alt="JavaScript">
+                    </div>
+                    <div class="skill-item" style="top: 15px;">
+                        <img src="./img/skills/github.png" class="skill-icon" alt="Github" style="width: 90px; height: 80px;">
+                    </div>
+                    <div class="skill-item" style="top: 25px;">
+                        <img src="./img/skills/linux.png" class="skill-icon" alt="Linux">
+                    </div>
                 </div>
-                <div class="skill-item" style="top: 40px;">
-                    <img src="https://via.placeholder.com/80?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt" style="width: 80px; height: 80px;">
-                    <span>Tiếng Việt</span>
+                <div class="slider-content-base">
+                    <div class="skill-item" style="top: 10px;">
+                        <img src="./img/skills/physics.png" class="skill-icon" alt="React">
+                    </div>
+                    <div class="skill-item" style="top: 40px;">
+                        <img src="./img/skills/icons8-.net-framework-144.png" class="skill-icon" alt="DotNet" style="width: 80px; height: 80px;">
+                    </div>
+                    <div class="skill-item" style="top: 20px;">
+                        <img src="./img/skills/mysql-database.png" class="skill-icon" alt="MySQL" style="width: 70px; height: 70px;">
+                    </div>
+                    <div class="skill-item" style="top: 30px;">
+                        <img src="./img/skills/sql-server.png" class="skill-icon" alt="SQLServer">
+                    </div>
+                    <div class="skill-item" style="top: 15px;">
+                        <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 80px;">
+                        <span data-lang-vi="Teamwork" data-lang-en="Teamwork">Teamwork</span>
+                    </div>
+                    <div class="skill-item" style="top: 25px;">
+                        <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
+                        <span data-lang-vi="Problem Solving" data-lang-en="Problem Solving">Problem Solving</span>
+                    </div>
                 </div>
-                <div class="skill-item" style="top: 20px;">
-                    <img src="https://via.placeholder.com/70?text=Python" class="skill-icon" alt="Python" style="width: 70px; height: 70px;">
-                    <span>Python</span>
-                </div>
-                <div class="skill-item" style="top: 30px;">
-                    <img src="https://via.placeholder.com/60?text=Java" class="skill-icon" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill-item" style="top: 15px;">
-                    <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 90px;">
-                    <span>Teamwork</span>
-                </div>
-                <div class="skill-item" style="top: 25px;">
-                    <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
-                    <span>Problem Solving</span>
-                </div>
-                <!-- Lặp lại để liền mạch -->
-                <div class="skill-item" style="top: 10px;">
-                    <img src="https://via.placeholder.com/60?text=Tiếng+Anh" class="skill-icon" alt="Tiếng Anh">
-                    <span>Tiếng Anh</span>
-                </div>
-                <div class="skill-item" style="top: 40px;">
-                    <img src="https://via.placeholder.com/80?text=Tiếng+Việt" class="skill-icon" alt="Tiếng Việt" style="width: 80px; height: 80px;">
-                    <span>Tiếng Việt</span>
-                </div>
-                <div class="skill-item" style="top: 20px;">
-                    <img src="https://via.placeholder.com/70?text=Python" class="skill-icon" alt="Python" style="width: 70px; height: 70px;">
-                    <span>Python</span>
-                </div>
-                <div class="skill-item" style="top: 30px;">
-                    <img src="https://via.placeholder.com/60?text=Java" class="skill-icon" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill-item" style="top: 15px;">
-                    <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 90px;">
-                    <span>Teamwork</span>
-                </div>
-                <div class="skill-item" style="top: 25px;">
-                    <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
-                    <span>Problem Solving</span>
+                <div class="slider-content-base">
+                    <div class="skill-item" style="top: 10px;">
+                        <img src="https://via.placeholder.com/60?text=English" class="skill-icon" alt="English">
+                        <span data-lang-vi="Tiếng Anh" data-lang-en="English">English</span>
+                    </div>
+                    <div class="skill-item" style="top: 40px;">
+                        <img src="https://via.placeholder.com/80?text=Vietnamese" class="skill-icon" alt="Vietnamese" style="width: 80px; height: 80px;">
+                        <span data-lang-vi="Tiếng Việt" data-lang-en="Vietnamese">Vietnamese</span>
+                    </div>
+                    <div class="skill-item" style="top: 20px;">
+                        <img src="https://via.placeholder.com/70?text=Python" class="skill-icon" alt="Python" style="width: 70px; height: 70px;">
+                        <span data-lang-vi="Python" data-lang-en="Python">Python</span>
+                    </div>
+                    <div class="skill-item" style="top: 30px;">
+                        <img src="https://via.placeholder.com/60?text=Java" class="skill-icon" alt="Java">
+                        <span data-lang-vi="Java" data-lang-en="Java">Java</span>
+                    </div>
+                    <div class="skill-item" style="top: 15px;">
+                        <img src="https://via.placeholder.com/90?text=Teamwork" class="skill-icon" alt="Teamwork" style="width: 90px; height: 80px;">
+                        <span data-lang-vi="Teamwork" data-lang-en="Teamwork">Teamwork</span>
+                    </div>
+                    <div class="skill-item" style="top: 25px;">
+                        <img src="https://via.placeholder.com/60?text=Problem+Solving" class="skill-icon" alt="Problem Solving">
+                        <span data-lang-vi="Problem Solving" data-lang-en="Problem Solving">Problem Solving</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -294,23 +476,23 @@
     <!-- Experience Section (Timeline) -->
     <section id="experience" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Kinh nghiệm</h2>
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Kinh nghiệm" data-lang-en="Experience">Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">[Công ty 1] - [Chức vụ]</h5>
-                            <p class="card-text"><small>Tháng [X] 20XX - Hiện tại</small></p>
-                            <p>Thành tựu nổi bật của bạn tại đây.</p>
+                            <h5 class="card-title" data-lang-vi="[Công ty 1] - [Chức vụ]" data-lang-en="[Company 1] - [Position]">[Company 1] - [Position]</h5>
+                            <p class="card-text"><small data-lang-vi="Tháng [X] 20XX - Hiện tại" data-lang-en="Month [X] 20XX - Present">Month [X] 20XX - Present</small></p>
+                            <p data-lang-vi="Thành tựu nổi bật của bạn tại đây." data-lang-en="Your notable achievements here.">Your notable achievements here.</p>
                         </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">[Công ty 2] - [Chức vụ]</h5>
-                            <p class="card-text"><small>Tháng [X] 20XX - Tháng [Y] 20XX</small></p>
-                            <p>Thành tựu nổi bật của bạn tại đây.</p>
+                            <h5 class="card-title" data-lang-vi="[Công ty 2] - [Chức vụ]" data-lang-en="[Company 2] - [Position]">[Company 2] - [Position]</h5>
+                            <p class="card-text"><small data-lang-vi="Tháng [X] 20XX - Tháng [Y] 20XX" data-lang-en="Month [X] 20XX - Month [Y] 20XX">Month [X] 20XX - Month [Y] 20XX</small></p>
+                            <p data-lang-vi="Thành tựu nổi bật của bạn tại đây." data-lang-en="Your notable achievements here.">Your notable achievements here.</p>
                         </div>
                     </div>
                 </div>
@@ -319,30 +501,55 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-5" style="background-color: var(--silver);">
+    <section id="portfolio" class="py-5" style="background-color: var(--secondary);">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Dự án</h2>
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Dự án" data-lang-en="Portfolio">Portfolio</h2>
             <div class="row">
                 <div class="col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="Dự án 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Dự án 1</h5>
-                            <p class="card-text">Mô tả ngắn gọn nhưng cuốn hút.</p>
-                            <a href="#" class="btn btn-custom">Xem chi tiết</a>
+                    <div class="project-card">
+                        <h5 class="project-title" data-lang-vi="Dự án 1" data-lang-en="Project 1">Project 1</h5>
+                        <p class="project-desc" data-lang-vi="Mô tả ngắn gọn nhưng cuốn hút." data-lang-en="A concise yet captivating description.">A concise yet captivating description.</p>
+                        <div class="project-langs">
+                            <img src="https://via.placeholder.com/30?text=Python" class="project-lang-icon" alt="Python">
+                            <img src="https://via.placeholder.com/30?text=JS" class="project-lang-icon" alt="JavaScript">
+                            <img src="https://via.placeholder.com/30?text=HTML" class="project-lang-icon" alt="HTML">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <img src="https://via.placeholder.com/500x300" class="card-img-top" alt="Dự án 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Dự án 2</h5>
-                            <p class="card-text">Mô tả ngắn gọn nhưng cuốn hút.</p>
-                            <a href="#" class="btn btn-custom">Xem chi tiết</a>
+                    <div class="project-card">
+                        <h5 class="project-title" data-lang-vi="Dự án 2" data-lang-en="Project 2">Project 2</h5>
+                        <p class="project-desc" data-lang-vi="Mô tả ngắn gọn nhưng cuốn hút." data-lang-en="A concise yet captivating description.">A concise yet captivating description.</p>
+                        <div class="project-langs">
+                            <img src="https://via.placeholder.com/30?text=Java" class="project-lang-icon" alt="Java">
+                            <img src="https://via.placeholder.com/30?text=CSS" class="project-lang-icon" alt="CSS">
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <h5 class="project-title" data-lang-vi="Dự án 3" data-lang-en="Project 3">Project 3</h5>
+                        <p class="project-desc" data-lang-vi="Mô tả ngắn gọn nhưng cuốn hút." data-lang-en="A concise yet captivating description.">A concise yet captivating description.</p>
+                        <div class="project-langs">
+                            <img src="https://via.placeholder.com/30?text=React" class="project-lang-icon" alt="React">
+                            <img src="https://via.placeholder.com/30?text=Node" class="project-lang-icon" alt="Node.js">
+                            <img src="https://via.placeholder.com/30?text=SQL" class="project-lang-icon" alt="SQL">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="project-card">
+                        <h5 class="project-title" data-lang-vi="Dự án 4" data-lang-en="Project 4">Project 4</h5>
+                        <p class="project-desc" data-lang-vi="Mô tả ngắn gọn nhưng cuốn hút." data-lang-en="A concise yet captivating description.">A concise yet captivating description.</p>
+                        <div class="project-langs">
+                            <img src="https://via.placeholder.com/30?text=Python" class="project-lang-icon" alt="Python">
+                            <img src="https://via.placeholder.com/30?text=Django" class="project-lang-icon" alt="Django">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="[Link GitHub Repositories]" target="_blank" class="btn btn-custom" data-lang-vi="Xem thêm trên GitHub" data-lang-en="View More on GitHub">View More on GitHub</a>
             </div>
         </div>
     </section>
@@ -350,16 +557,46 @@
     <!-- Footer -->
     <footer class="py-4">
         <div class="container text-center">
-            <p>© 2025 [Tên Bạn]. Kết nối với tôi:</p>
+            <p data-lang-vi="© 2025 Ngô Hoàng Minh Trí, cùng với Grok & ChatGPT (AI hỗ trợ). Kết nối với tôi:" data-lang-en="© 2025 Tri Ngo Hoang Minh, along with Grok & ChatGPT (AI-assisted). Connect with me:">© 2025 Tri Ngo Hoang Minh, along with Grok & ChatGPT (AI-assisted). Connect with me:</p>
             <div>
-                <a href="[Link LinkedIn]" target="_blank"><img src="https://via.placeholder.com/40?text=L" class="skill-icon" alt="LinkedIn"></a>
-                <a href="[Link Facebook]" target="_blank"><img src="https://via.placeholder.com/40?text=F" class="skill-icon" alt="Facebook"></a>
-                <a href="[Link GitHub]" target="_blank"><img src="https://via.placeholder.com/40?text=G" class="skill-icon" alt="GitHub"></a>
+                <a href="[Link LinkedIn]" target="_blank"><img src="./img/links/linkedin.png" class="skill-icon" alt="LinkedIn"></a>
+                <a href="https://github.com/MinhTriTech" target="_blank"><img src="./img/links/github.png" class="skill-icon" alt="GitHub" style="filter: invert(1);"></a>
+                <a href="mailto:hoangminhtri.ngo@gmail.com" target="_blank"><img src="./img/links/email.png" class="skill-icon" alt="Gmail" style="filter: invert(1);"></a>
             </div>
         </div>
     </footer>
 
     <!-- Link Bootstrap JS từ CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript cho chuyển đổi ngôn ngữ và điều hướng -->
+    <script>
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const currentLang = this.getAttribute('data-lang');
+            const newLang = currentLang === 'en' ? 'vi' : 'en';
+            this.setAttribute('data-lang', newLang);
+            const langIcon = document.getElementById('langIcon');
+            langIcon.src = newLang === 'en' ? './img/flags/united-kingdom.png' : './img/flags/vietnam.png';
+
+            document.querySelectorAll('[data-lang-vi]').forEach(element => {
+                const text = newLang === 'vi' ? element.getAttribute('data-lang-vi') : element.getAttribute('data-lang-en');
+                element.textContent = text;
+            });
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const navbarHeight = document.querySelector('.navbar-custom').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
