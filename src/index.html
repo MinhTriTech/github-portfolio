@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - Tri Ngo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tri Ngo Hoang Minh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home" data-lang-vi="Trang chủ" data-lang-en="Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills" data-lang-vi="Kỹ năng" data-lang-en="Skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience" data-lang-vi="Kinh nghiệm" data-lang-en="Experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio" data-lang-vi="Dự án" data-lang-en="Projects">Projects</a></li>
+                    <li class="nav-item">
+                        <button id="langToggle" class="lang-toggle-btn ms-2" data-lang="en">
+                            <img src="../img/flags/united-kingdom.png" id="langIcon" alt="Language">
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Home + About) -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <img src="../img/avatar/avatar.png" class="profile-img shadow" alt="Profile Picture">
+            <div class="hero-text">
+                <h1>Tri Ngo Hoang Minh</h1>
+                <p class="lead" data-lang-vi="Sinh viên" data-lang-en="Student">Student</p>
+                <p data-lang-vi="Tui là Trí, thích tìm tòi mấy món công nghệ, từ phần mềm tới phần cứng. Nhưng mà chỉ thích không thì khó mà đi xa trong ngành Công nghệ Thông tin. Tui thích thử sức với mấy cái mới, dù phải mất thời gian để quen, nhưng mỗi thử thách đều đáng giá trên con đường chinh phục mục tiêu. À mà, ảnh bên trái là ảnh ghép đó, thời đại AI mà. Tui đi thì cũng nhiều, nhưng không có duyên với chuyện chụp ảnh hay sao ấy. ...@@..." 
+                data-lang-en="I'm Tri, someone who enjoys exploring technology, from software to hardware. But just enjoying it isn't enough to go far in the Information Technology industry. I like taking on new challenges, even though adapting takes time, but each challenge adds value to the journey of achieving my goals. Oh, by the way, the photo on the left is edited—AI era, after all. I travel quite a bit, but somehow, I never seem to have much luck with taking photos. ...@@...">
+                I'm Trí, someone who enjoys exploring technology, from software to hardware. But just enjoying it isn't enough to go far in the Information Technology industry. I like taking on new challenges, even though adapting takes time, but each challenge adds value to the journey of achieving my goals. Oh, by the way, the photo on the left is edited—AI era, after all. I travel quite a bit, but somehow, I never seem to have much luck with taking photos. ...@@...</p>
+                <a href="[Link to PDF CV]" download class="btn btn-custom" data-lang-vi="Tải CV của tôi" data-lang-en="Download My CV">Download My CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Kỹ năng" data-lang-en="Skills">Skills</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4 justify-content-center">
+                <!-- Technical Skills -->
+                <div class="col">
+                    <div class="skill-card text-center p-3">
+                        <img src="../img/skills/java.png" class="skill-icon mb-2" alt="Java">
+                        <p class="mb-0">Java</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="skill-card text-center p-3">
+                        <img src="../img/skills/js.png" class="skill-icon mb-2" alt="JavaScript">
+                        <p class="mb-0">JavaScript</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="skill-card text-center p-3">
+                        <img src="../img/skills/mysql-database.png" class="skill-icon mb-2" alt="MySQL">
+                        <p class="mb-0">MySQL</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="skill-card text-center p-3">
+                        <img src="../img/skills/linux.png" class="skill-icon mb-2" alt="Linux">
+                        <p class="mb-0">Linux</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Accordion) -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Kinh nghiệm" data-lang-en="Experience">Experience</h2>
+            <div class="accordion" id="experienceAccordion">
+
+                <!-- <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span data-lang-vi="[Công ty Gần Đây Nhất] - [Chức vụ]" data-lang-en="[Most Recent Company] - [Position]">[Most Recent Company] - [Position]</span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-1"><small data-lang-vi="Tháng 1 2025 - Hiện tại" data-lang-en="January 2025 - Present">January 2025 - Present</small></p>
+                            <p data-lang-vi="Thành tựu nổi bật của bạn tại công ty gần đây nhất." data-lang-en="Your notable achievements at the most recent company.">Your notable achievements at the most recent company.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <span data-lang-vi="[Công ty 2] - [Chức vụ]" data-lang-en="[Company 2] - [Position]">[Company 2] - [Position]</span>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-1"><small data-lang-vi="Tháng 6 2023 - Tháng 12 2024" data-lang-en="June 2023 - December 2024">June 2023 - December 2024</small></p>
+                            <p data-lang-vi="Thành tựu nổi bật của bạn tại công ty 2." data-lang-en="Your notable achievements at company 2.">Your notable achievements at company 2.</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <span data-lang-vi="Công ty Vũ Phong-SixOS - FrontEnd Developer" data-lang-en="Vu Phong-SixOS Company - FrontEnd Developer">Vu Phong-SixOS Company - FrontEnd Developer</span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#experienceAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted mb-1">
+                                <small data-lang-vi="Tháng 6 2024 - Tháng 12 2024" data-lang-en="June 2024 - December 2024">
+                                    June 2024 - December 2024
+                                </small>
+                            </p>
+                            <p data-lang-vi="Tham gia phát triển giao diện và tối ưu trải nghiệm người dùng cho phần mềm quản lý bệnh viện và phòng khám. Phối hợp với nhóm backend để tích hợp API, xử lý dữ liệu bệnh nhân và cải thiện hiệu suất ứng dụng." 
+                               data-lang-en="Developed and optimized the user interface for hospital and clinic management software. Collaborated with the backend team to integrate APIs, handle patient data, and improve application performance.">
+                               Developed and optimized the user interface for hospital and clinic management software. Collaborated with the backend team to integrate APIs, handle patient data, and improve application performance.
+                            </p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="portfolio" class="py-5" style="background-color: var(--secondary);">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold" data-lang-vi="Dự án" data-lang-en="Projects">Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-6 mb-4">
+                    <a href="https://github.com/MinhTriTech/QuanLyCuaHangViTinh_Console.git" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="project-title" data-lang-vi="LaptopStoreManager_Console" data-lang-en="LaptopStoreManager_Console">LaptopStoreManager_Console</h5>
+                                <!-- <img src="https://via.placeholder.com/20?text=Link" class="link-icon" alt="Link Icon"> -->
+                            </div>
+                            <p class="project-desc" data-lang-vi="Ứng dụng quản lý cửa hàng laptop trên console, hỗ trợ quản lý sản phẩm, khách hàng, hóa đơn và thống kê. Dữ liệu được lưu trữ dưới dạng file TXT." 
+                               data-lang-en="A console-based laptop store management application that handles product inventory, customer accounts, invoices, and sales reports. Data is stored in TXT files.">
+                               A console-based laptop store management application that handles product inventory, customer accounts, invoices, and sales reports. Data is stored in TXT files.
+                            </p>
+                            <div class="project-langs">
+                                <img src="../img/skills/java.png" class="project-lang-icon" alt="Java">
+                            </div>
+                        </div>
+                    </a>
+                </div>                
+                
+                <!-- <div class="col-md-6 mb-4">
+                    <a href="https://github.com/MinhTriTech/project-repo-2" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="project-title" data-lang-vi="Tên Repo 2" data-lang-en="Repo Name 2">Repo Name 2</h5>
+                                <img src="https://via.placeholder.com/20?text=Link" class="link-icon" alt="Link Icon">
+                            </div>
+                            <p class="project-desc" data-lang-vi="Mô tả ngắn gọn về dự án 2, ví dụ: Một ứng dụng Java để phân tích dữ liệu." data-lang-en="A brief description of project 2, e.g., A Java app for data analysis.">A brief description of project 2, e.g., A Java app for data analysis.</p>
+                            <div class="project-langs">
+                                <img src="../img/skills/java.png" class="project-lang-icon" alt="Java">
+                                <img src="../img/skills/css.png" class="project-lang-icon" alt="CSS">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <a href="https://github.com/MinhTriTech/project-repo-3" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="project-title" data-lang-vi="Tên Repo 3" data-lang-en="Repo Name 3">Repo Name 3</h5>
+                                <img src="https://via.placeholder.com/20?text=Link" class="link-icon" alt="Link Icon">
+                            </div>
+                            <p class="project-desc" data-lang-vi="Mô tả ngắn gọn về dự án 3, ví dụ: Một ứng dụng web với React và Node.js." data-lang-en="A brief description of project 3, e.g., A web app with React and Node.js.">A brief description of project 3, e.g., A web app with React and Node.js.</p>
+                            <div class="project-langs">
+                                <img src="../img/skills/react.png" class="project-lang-icon" alt="React">
+                                <img src="../img/skills/node.png" class="project-lang-icon" alt="Node.js">
+                                <img src="../img/skills/sql-server.png" class="project-lang-icon" alt="SQL">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <a href="https://github.com/MinhTriTech/project-repo-4" target="_blank" class="text-decoration-none">
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="project-title" data-lang-vi="Tên Repo 4" data-lang-en="Repo Name 4">Repo Name 4</h5>
+                                <img src="https://via.placeholder.com/20?text=Link" class="link-icon" alt="Link Icon">
+                            </div>
+                            <p class="project-desc" data-lang-vi="Mô tả ngắn gọn về dự án 4, ví dụ: Một API với Python và Django." data-lang-en="A brief description of project 4, e.g., An API with Python and Django.">A brief description of project 4, e.g., An API with Python and Django.</p>
+                            <div class="project-langs">
+                                <img src="../img/skills/python.png" class="project-lang-icon" alt="Python">
+                                <img src="../img/skills/django.png" class="project-lang-icon" alt="Django">
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://github.com/MinhTriTech" target="_blank" class="btn btn-custom" data-lang-vi="Xem thêm trên GitHub" data-lang-en="View More on GitHub">View More on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p data-lang-vi="© 2025 Ngô Hoàng Minh Trí, cùng với Grok & ChatGPT (AI hỗ trợ). Kết nối với tôi:" data-lang-en="© 2025 Tri Ngo Hoang Minh, along with Grok & ChatGPT (AI-assisted). Connect with me:">© 2025 Tri Ngo Hoang Minh, along with Grok & ChatGPT (AI-assisted). Connect with me:</p>
+            <div class="connect-links mb-3">
+                <a href="[Link LinkedIn]" target="_blank" class="connect-btn">
+                    <img src="../img/links/linkedin.png" class="connect-icon" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/MinhTriTech" target="_blank" class="connect-btn">
+                    <img src="../img/links/github.png" class="connect-icon" alt="GitHub">
+                </a>
+                <a href="mailto:hoangminhtri.ngo@gmail.com" target="_blank" class="connect-btn">
+                    <img src="../img/links/email.png" class="connect-icon" alt="Gmail">
+                </a>
+            </div>
+            <p class="cv-update small" data-lang-vi="CV Cập nhật lần cuối: Tháng 3/2025" data-lang-en="CV Last Updated: March 2025">CV Last Updated: March 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
